@@ -7,7 +7,7 @@ import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
 /**
- * Created by ismet on 21/06/15.
+ * Created by ismet özöztürk on 21/06/15.
  */
 object Application extends App with Logging {
 
