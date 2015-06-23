@@ -7,6 +7,6 @@ import com.rabbitmq.client.QueueingConsumer.Delivery
  */
 trait Mutant {
 
-  def mutate(delivery : Delivery) : Map
+  def mutate(delivery : Delivery) : JsonLog
 
 }
