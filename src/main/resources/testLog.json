@@ -1,0 +1,8 @@
+{
+  "context": "context text",
+  "level": "DEBUG",
+  "timestamp": 10000000,
+  "loggerName": "play logger",
+  "threadName": "play thread",
+  "message": "test message"
+}
