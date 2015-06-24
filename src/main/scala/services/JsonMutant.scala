@@ -1,6 +1,6 @@
 package services
 
-import com.rabbitmq.client.QueueingConsumer.Delivery
+import io.scalac.amqp.Delivery
 import play.api.libs.json.{JsResult, Json}
 
 /**
@@ -8,11 +8,12 @@ import play.api.libs.json.{JsResult, Json}
  */
 
 case class JsonLog(context:String, level:String, timestamp:Long, loggerName:String, threadName:String, message:String)
+
 object JsonMutant extends Mutant{
   implicit val personFormat = Json.format[JsonLog]
 
   override def mutate(delivery: Delivery): JsonLog = {
-    val jsonLog: JsResult[JsonLog] = Json.fromJson[JsonLog](Json.parse(delivery.getBody))
+    val jsonLog: JsResult[JsonLog] = Json.fromJson[JsonLog](Json.parse(delivery.message.body.utf8String))
     jsonLog.get
   }
 
