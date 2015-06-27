@@ -8,7 +8,7 @@ WIP Feel free to comment, contact
 
 This software is licensed under the Apache 2 license, quoted below.
 
-Copyright &copy; 2013 **[İsmet Özöztürk](iozozturk@gmail.com)**.
+Copyright &copy; 2013 **[İsmet Özöztürk](mailto:iozozturk@gmail.com)**.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 
