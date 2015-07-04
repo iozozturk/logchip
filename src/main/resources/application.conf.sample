@@ -1,0 +1,7 @@
+amqp {
+  addresses = [
+    { host = "URL", port = 5672 }
+  ],
+  username = "guest",
+  password = "guest"
+}
