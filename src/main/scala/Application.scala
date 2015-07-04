@@ -43,6 +43,26 @@ object Application extends App with Logging {
     flow.run()
   }
 
+  // set up the context
+//  val g = FlowGraph.closed() { implicit builder =>
+//    import FlowGraph.Implicits._
+//
+//    // create the Source and Sink
+//    val in = Source(1 to 10)
+//    val out = Sink.ignore
+//
+//    // create the fan out and fan in stages
+//    val bcast = builder.add(Broadcast[Int](2))
+//    val merge = builder.add(Merge[Int](2))
+//
+//    // create a set of transformations
+//    val f1, f2, f3, f4 = Flow[Int].map(_ + 10)
+//
+//    // define the graph/stream processing blueprint
+//    in ~> f1 ~> bcast ~> f2 ~> merge ~> f3 ~> out
+//    bcast ~> f4 ~> merge
+//  }
+
   def setUpRabbit(): Future[List[Queue.BindOk]] = {
     /* declare and bind inbound exchange and queue */
     Future.sequence {
@@ -50,7 +70,7 @@ object Application extends App with Logging {
         connection.queueDeclare(RabbitRegistry.inboundQueue) :: Nil
     } flatMap { _ =>
       Future.sequence {
-        connection.queueBind(RabbitRegistry.inboundQueue.name, RabbitRegistry.inboundExchange.name, "") :: Nil
+        connection.queueBind(RabbitRegistry.inboundQueue.name, RabbitRegistry.inboundExchange.name, "logchip.inbound.route") :: Nil
       }
     }
   }
